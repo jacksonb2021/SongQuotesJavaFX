@@ -36,7 +36,7 @@ public class App extends Application {
         tableview = new TableViewQuotes(q);
         everything.setCenter(tableview);
 
-        var scene = new Scene(everything, 800, 600);
+        var scene = new Scene(everything, 850, 600);
         stage.setScene(scene);
         stage.setOnCloseRequest(event -> {
             q.save();
