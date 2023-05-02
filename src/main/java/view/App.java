@@ -133,7 +133,16 @@ public class App extends Application {
                 songInput.requestFocus();
             }
         }
-
+        songInput.addEventFilter(KeyEvent.KEY_PRESSED, k->{
+            if(k.getCode().toString().equals("ENTER")) {
+                artistInput.requestFocus();
+            }
+        });
+        artistInput.addEventFilter(KeyEvent.KEY_PRESSED, k->{
+            if(k.getCode().toString().equals("ENTER")) {
+                quoteInput.requestFocus();
+            }
+        });
         quoteInput.addEventFilter(KeyEvent.KEY_PRESSED,k->{
             if(k.getCode().toString().equals("ENTER")) {
                 String songstr = capitalize(songInput.getText().strip());
@@ -157,6 +166,9 @@ public class App extends Application {
             TableView<?> theTable;
             theTable = tableview.getTable();
             Quote tableSelect = (Quote) theTable.getSelectionModel().getSelectedItem();
+            artistInput.setText(tableSelect.getArtist());
+            songInput.setText(tableSelect.getSong());
+            quoteInput.setText(tableSelect.getQuote());
             q.deleteQuote(tableSelect);
             tableview.refresh();
 

@@ -31,7 +31,8 @@ public class TableViewQuotes extends BorderPane {
         song.setCellValueFactory(new PropertyValueFactory<Quote, String>("Song"));
         quote.setCellValueFactory(new PropertyValueFactory<Quote, String>("Quote"));
         artist.setCellValueFactory(new PropertyValueFactory<Quote,String>("Artist"));
-        quote.setMinWidth(500);
+        quote.setMinWidth(600);
+        artist.setMinWidth(100);
 
         table.setItems(observableList);
         table.getColumns().addAll(song, artist, quote);
@@ -52,6 +53,7 @@ public class TableViewQuotes extends BorderPane {
         table.getSortOrder().add(song);
         table.sort();
         this.setCenter(table);
+        quotes.save();
     }
 
     public TableView<Quote> getTable(){
