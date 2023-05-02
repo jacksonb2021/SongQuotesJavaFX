@@ -181,9 +181,13 @@ public class App extends Application {
     private String capitalize(String str){
         String ans = "";
         for(String s : str.split(" ")){
-            ans+=s.substring(0,1).toUpperCase();
-            ans+=s.substring(1,s.length());
-            ans+=" ";
+            try {
+                ans += s.substring(0, 1).toUpperCase();
+                ans += s.substring(1);
+                ans += " ";
+            }catch (Exception e){
+                ans += s+= " ";
+            }
         }
         ans = ans.strip();
         return ans;
