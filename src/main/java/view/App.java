@@ -160,7 +160,7 @@ public class App extends Application {
 
 
 
-        songInput.setOnAction(new ButtonHandler());
+        //songInput.setOnAction(new ButtonHandler());
         submit.setOnAction(new ButtonHandler());
         remove.setOnAction(k ->{
             TableView<?> theTable;
