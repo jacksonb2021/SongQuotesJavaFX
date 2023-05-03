@@ -10,7 +10,6 @@ import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
@@ -24,15 +23,10 @@ public class App extends Application {
     Quotes q = new Quotes();
 
     BorderPane everything = new BorderPane();
-    TextArea text = new TextArea();
     TableViewQuotes tableview;
     @Override
     public void start(Stage stage) {
-//        var javaVersion = SystemInfo.javaVersion();
-//        var javafxVersion = SystemInfo.javafxVersion();
-
         input();
-        text.setText(q.toString());
         tableview = new TableViewQuotes(q);
         everything.setCenter(tableview);
 
@@ -128,7 +122,6 @@ public class App extends Application {
                 songInput.clear();
                 quoteInput.clear();
                 artistInput.clear();
-                text.setText(q.toString());
                 tableview.refresh();
                 songInput.requestFocus();
             }
@@ -152,7 +145,6 @@ public class App extends Application {
                 songInput.clear();
                 quoteInput.clear();
                 artistInput.clear();
-                text.setText(q.toString());
                 tableview.refresh();
                 songInput.requestFocus();
             }
