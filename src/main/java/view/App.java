@@ -30,7 +30,7 @@ public class App extends Application {
         tableview = new TableViewQuotes(q);
         everything.setCenter(tableview);
 
-        var scene = new Scene(everything, 850, 600);
+        var scene = new Scene(everything, 860, 600);
         stage.setScene(scene);
         stage.setOnCloseRequest(event -> {
             q.save();
@@ -124,6 +124,9 @@ public class App extends Application {
                 artistInput.clear();
                 tableview.refresh();
                 songInput.requestFocus();
+                TableView<?> theTable = tableview.getTable();
+                theTable.getSelectionModel().select(tableview.getObservableList().indexOf(q.getQuote(songstr,
+                        artiststr, quotestr)));
             }
         }
         songInput.addEventFilter(KeyEvent.KEY_PRESSED, k->{
@@ -142,10 +145,13 @@ public class App extends Application {
                 String quotestr = quoteInput.getText().strip();
                 String artiststr = capitalize(artistInput.getText().strip());
                 q.addQuote(songstr, artiststr, quotestr);
+                TableView<?> theTable = tableview.getTable();
                 songInput.clear();
                 quoteInput.clear();
                 artistInput.clear();
                 tableview.refresh();
+                theTable.getSelectionModel().select(tableview.getObservableList().indexOf(q.getQuote(songstr,
+                        artiststr, quotestr)));
                 songInput.requestFocus();
             }
         });

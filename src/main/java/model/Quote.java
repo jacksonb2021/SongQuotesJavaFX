@@ -3,9 +3,9 @@ package model;
 import java.io.Serializable;
 
 public class Quote implements Serializable {
-    private String song;
-    private String quote;
-    private String artist;
+    private final String song;
+    private final String quote;
+    private final String artist;
 
     public Quote(String song, String artist, String quote){
         this.song = song;

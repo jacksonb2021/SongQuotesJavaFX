@@ -17,11 +17,11 @@ import java.util.ArrayList;
 
 public class TableViewQuotes extends BorderPane {
 
-    private TableView<Quote> table;
+    private final TableView<Quote> table;
     private static ObservableList<Quote> observableList = FXCollections.observableArrayList();
-    private Quotes quotes;
-    private TableColumn<Quote, String> song;
-    private TableColumn<Quote,String> artist;
+    private final Quotes quotes;
+    private final TableColumn<Quote, String> song;
+    private final TableColumn<Quote,String> artist;
 
 
 
@@ -61,8 +61,8 @@ public class TableViewQuotes extends BorderPane {
 
 
         quote.setMinWidth(600);
-        artist.setMinWidth(110);
-        song.setMinWidth(110);
+        artist.setMinWidth(120);
+        song.setMinWidth(120);
 
         table.setItems(observableList);
         table.getColumns().addAll(song, artist, quote);
@@ -73,6 +73,13 @@ public class TableViewQuotes extends BorderPane {
 
 
     }
+
+
+
+    public ObservableList<Quote> getObservableList(){
+        return observableList;
+    }
+
 
     public void refresh(){
 

@@ -7,7 +7,7 @@ import java.util.HashMap;
 public class Serializer {
     //private HashMap<String,ArrayList<String>> map;
     private ArrayList<Quote> list;
-    private String databasePath = "quotes.ser";
+    private final String databasePath = "quotes.ser";
 
     public Serializer() {
         list = new ArrayList<>();
