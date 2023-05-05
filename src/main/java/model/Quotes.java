@@ -73,6 +73,15 @@ public class Quotes {
 
     }
 
+    public Quote getQuote(String songstr, String artiststr, String quotestr) {
+        for(Quote q : quotes){
+            if(q.getSong().equals(songstr) && q.getArtist().equals(artiststr) && q.getQuote().equals(quotestr)){
+                return q;
+            }
+        }
+        return null;
+    }
+
 //    public void deleteQuoteByIndex(String title, int index){
 //        quotes.get(title).remove(index);
 //
