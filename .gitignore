@@ -1,4 +1,4 @@
 /.idea/
 /target/
-quotes.ser
+out/quotes.ser
 /.settings/
