@@ -39,6 +39,10 @@ public class Quotes {
 
     }
 
+    public void exportQuotes(){
+        ser.exportQuotes();
+    }
+
     public int size(){
         return quotes.size();
     }
@@ -46,21 +50,11 @@ public class Quotes {
 
 
     public void addQuote(String song, String author, String quote){
-//        if(quotes.containsKey(song)) {
-//            quotes.get(song).add(quote);
-//        }
-//        else{
-//            ArrayList<String> newQuote = new ArrayList<>();
-//            newQuote.add(quote);
-//            quotes.put(song, newQuote);
-//        }
+
         quotes.add(new Quote(song,author, quote));
     }
 
 
-    //public ArrayList<String> getQuotes(String song){
-//        return quotes.get(song);
-//    }
 
     public ArrayList<Quote> getList(){
         return quotes;

@@ -39,6 +39,23 @@ public class Serializer {
     }
 
 
+    public void exportQuotes(){
+        String str = "";
+        for(Quote q : list){
+            str+=q.getSong() + "\n" + q.getArtist() + "\n" + q.getQuote()+"\n\n";
+        }
+        try{
+            FileWriter fw = new FileWriter("quotes.txt");
+            fw.write(str);
+            fw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
+
     public ArrayList<Quote> getList(){
         return this.list;
     }

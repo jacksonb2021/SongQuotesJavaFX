@@ -29,6 +29,7 @@ public class App extends Application {
         input();
         tableview = new TableViewQuotes(q);
         everything.setCenter(tableview);
+        createMenu();
 
         var scene = new Scene(everything, 860, 600);
         stage.setScene(scene);
@@ -41,6 +42,20 @@ public class App extends Application {
 
 
 
+
+    private void createMenu(){
+        MenuBar menubar = new MenuBar();
+        Menu file = new Menu("File");
+        MenuItem export = new MenuItem("Export");
+
+
+        export.setOnAction(event -> {
+            q.exportQuotes();
+        });
+        file.getItems().add(export);
+        menubar.getMenus().add(file);
+        everything.setTop(menubar);
+    }
 
 
 
