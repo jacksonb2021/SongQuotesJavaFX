@@ -33,18 +33,19 @@ public class Quotes {
 
 
     public void save(){
-        ser.saveMap();
+        ser.saveList();
     }
 
 	public void clearQuotes(){
 		quotes = new ArrayList<>();
+		ser.setList(quotes);
 	}
 
-    public void exportQuotes(String a){
-        ser.exportQuotes(a);
+    public String exportQuotes(String a){
+        return ser.exportQuotes(a);
     }
-	public boolean importQuotes(String text){
-		return ser.importQuotes(text);
+	public void importQuotes(String text){
+		quotes= ser.importQuotes(text);
 	}
 
     public int size(){
