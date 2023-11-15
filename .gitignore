@@ -2,3 +2,5 @@
 /target/
 out/quotes.ser
 /.settings/
+/quotes.ser
+/quotes.txt
