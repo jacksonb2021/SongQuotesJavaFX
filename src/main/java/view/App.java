@@ -51,6 +51,8 @@ public class App extends Application {
 
         export.setOnAction(event -> {
             q.exportQuotes();
+			Alert a = new Alert(Alert.AlertType.NONE,"Quotes exported to quotes.txt",ButtonType.OK);
+			a.show();
         });
         file.getItems().add(export);
         menubar.getMenus().add(file);
