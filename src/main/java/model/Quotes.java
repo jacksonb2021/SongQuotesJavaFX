@@ -3,7 +3,6 @@ package model;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 public class Quotes {
 
@@ -16,16 +15,16 @@ public class Quotes {
     public Quotes(){
         ser = new Serializer();
         quotes = ser.getList();
-        map = new HashMap<>();
-        //arr = new ArrayList<Quote>();
-        for(Quote q : quotes){
-            if(map.containsKey(q.getSong())){
-                map.get(q.getSong()).add(q);
-            }
-            else{
-                map.put(q.getSong(), new ArrayList<>());
-            }
-        }
+//        map = new HashMap<>();
+//        //arr = new ArrayList<Quote>();
+//        for(Quote q : quotes){
+//            if(map.containsKey(q.getSong())){
+//                map.get(q.getSong()).add(q);
+//            }
+//            else{
+//                map.put(q.getSong(), new ArrayList<>());
+//            }
+//        }
 
 
 
@@ -35,13 +34,18 @@ public class Quotes {
 
     public void save(){
         ser.saveMap();
-
-
     }
 
-    public void exportQuotes(){
-        ser.exportQuotes();
+	public void clearQuotes(){
+		quotes = new ArrayList<>();
+	}
+
+    public void exportQuotes(String a){
+        ser.exportQuotes(a);
     }
+	public boolean importQuotes(String text){
+		return ser.importQuotes(text);
+	}
 
     public int size(){
         return quotes.size();

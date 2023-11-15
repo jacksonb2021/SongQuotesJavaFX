@@ -2,7 +2,9 @@ package model;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Scanner;
 
 public class Serializer {
     //private HashMap<String,ArrayList<String>> map;
@@ -39,13 +41,13 @@ public class Serializer {
     }
 
 
-    public void exportQuotes(){
+    public void exportQuotes(String filename){
         String str = "";
         for(Quote q : list){
             str+=q.getSong() + "\n" + q.getArtist() + "\n" + q.getQuote()+"\n\n";
         }
         try{
-            FileWriter fw = new FileWriter("quotes.txt");
+            FileWriter fw = new FileWriter(parse(filename));
             fw.write(str);
             fw.close();
         } catch (IOException e) {
@@ -53,6 +55,39 @@ public class Serializer {
         }
 
     }
+
+
+	private String parse(String str){
+		String[]fn= str.split("\\.");
+		if(str.equals("")){
+			return "quotes.txt";
+		}
+		if(fn.length==1){
+			str+=".txt";
+		}
+		return str;
+	}
+
+	public ArrayList<Quote> importQuotes(String filename){//todo change to allow user input
+		Scanner s;
+
+		try {
+			s = new Scanner(new File(parse(filename)));
+		}
+		catch (IOException e){
+			return false;
+		}
+		String str = "";
+		while(s.hasNext()){
+			str+=s.nextLine()+"\n";
+		}
+		for(String quote : str.split("\n\n")){
+			String[]split = quote.split("\n");
+			Quote q = new Quote(split[0],split[1],split[2]);
+
+		}
+		return true;
+	}
 
 
 

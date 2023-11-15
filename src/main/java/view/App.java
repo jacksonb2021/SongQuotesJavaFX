@@ -47,14 +47,27 @@ public class App extends Application {
         MenuBar menubar = new MenuBar();
         Menu file = new Menu("File");
         MenuItem export = new MenuItem("Export");
-
+		MenuItem import_ = new MenuItem("Import");
 
         export.setOnAction(event -> {
-            q.exportQuotes();
+			TextInputDialog t = new TextInputDialog("quotes.txt");
+			t.setContentText("Enter filename to export quotes to\ndefault extension is .txt");
+			t.showAndWait();
+            q.exportQuotes(t.getEditor().getText().strip());
 			Alert a = new Alert(Alert.AlertType.NONE,"Quotes exported to quotes.txt",ButtonType.OK);
 			a.show();
         });
-        file.getItems().add(export);
+
+		import_.setOnAction(event->{
+
+			//TODO textbox
+			TextInputDialog t = new TextInputDialog("quotes.txt");
+			t.setContentText("Enter filename to export quotes to \ndefault extension is .txt");
+			t.showAndWait();
+			boolean b = q.importQuotes(t.getEditor().getText().strip());
+			tableview.refresh();
+		});
+        file.getItems().addAll(export,import_);
         menubar.getMenus().add(file);
         everything.setTop(menubar);
     }
