@@ -88,6 +88,7 @@ public class Serializer {
 			Quote q = new Quote(split[0],split[1],split[2]);
 			quotes.add(q);
 		}
+		this.list=quotes;
 		return quotes;
 	}
 
