@@ -1,5 +1,5 @@
 # SongQuotes
-This program can store quotes from different songs. It has a graphical interface through JavaFX
+Desktop app built with JavaFX to save and manage song quotes from your favorite artists.
 
 ## Releases
 https://github.com/jacksonb2021/SongQuotes/releases
